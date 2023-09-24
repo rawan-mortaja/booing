@@ -37,19 +37,13 @@
                                 About
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('show.gallery') }}" class="nav-link">
-                                Gallery
-                            </a>
 
-                        </li> --}}
-
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('blog.list') }}" class="nav-link">
                                 Blog
                             </a>
 
-                        </li> --}}
+                        </li>
                         @php
                             $room = App\Models\Room::latest()->get();
                         @endphp
@@ -70,11 +64,11 @@
                             </ul>
                         </li>
 
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('contact.us') }}" class="nav-link">
                                 Contact
                             </a>
-                        </li> --}}
+                        </li>
 
                         <li class="nav-item-btn">
                             <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>

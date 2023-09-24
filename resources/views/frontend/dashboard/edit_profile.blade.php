@@ -33,7 +33,7 @@
 
             <div class="col-lg-9">
                 <div class="service-article">
-                    
+
 
     <section class="checkout-area pb-70">
     <div class="container">
@@ -46,7 +46,7 @@
                         <h3 class="title">User Profile   </h3>
 
                         <div class="row">
-                           
+
         <div class="col-lg-6 col-md-6">
             <div class="form-group">
                 <label>Name <span class="required">*</span></label>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-         
+
         <div class="col-lg-6 col-md-6">
             <div class="form-group">
                 <label> Address <span class="required">*</span></label>
@@ -73,6 +73,13 @@
             <div class="form-group">
                 <label>Phone <span class="required">*</span></label>
                 <input type="text" name="phone" class="form-control" value="{{ $profileData->phone }}">
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+                <label>code <span class="required">*</span></label>
+                <input type="text" name="code" class="form-control" value="{{ $profileData->code }}">
             </div>
         </div>
 
@@ -97,15 +104,15 @@
 </div>
 </div>
 </div>
-</form>      
-        
+</form>
+
     </div>
 </section>
-                    
+
                 </div>
             </div>
 
-           
+
         </div>
     </div>
 </div>
@@ -124,7 +131,7 @@
         });
     });
 
-    </script>      
+    </script>
 
 
 

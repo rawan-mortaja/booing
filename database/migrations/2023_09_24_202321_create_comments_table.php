@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('multi_images', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rooms_id')
+            $table->foreignId('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->string('multi_img')->nullable();
+            $table->foreignId('post_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->text('message');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('multi_images');
+        Schema::dropIfExists('comments');
     }
 };
