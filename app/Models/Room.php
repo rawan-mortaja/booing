@@ -18,4 +18,9 @@ class Room extends Model
     const LOCATION_KHANYOUNES = "khan_younes";
 
     protected $guarded = [];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

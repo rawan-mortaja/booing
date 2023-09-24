@@ -17,8 +17,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
                 <a class="navbar-brand" href="index.html">
-                    <figure class="logo"><a href="index.html"><img
-                                src="{{ asset("frontend/assets/img/logos/logo") }}" width="200" height="40" alt=""></a>
+                    <figure class="logo"><a href="index.html"><img src="{{ asset('frontend/assets/img/logos/logo') }}"
+                                width="200" height="40" alt=""></a>
                     </figure>
                     {{-- <img src="{{ asset($setting->logo) }}" class="logo-one" alt="Logo"> --}}
                     {{-- <img src="{{ asset($setting->logo) }}" class="logo-two" alt="Logo"> --}}
@@ -37,51 +37,44 @@
                                 About
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                Restaurant
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('show.gallery') }}" class="nav-link">
                                 Gallery
                             </a>
 
-                        </li>
+                        </li> --}}
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('blog.list') }}" class="nav-link">
                                 Blog
                             </a>
 
-                        </li>
-                        {{-- @php
-        $room = App\Models\Room::latest()->get();
-    @endphp --}}
-                        {{-- <li class="nav-item">
+                        </li> --}}
+                        @php
+                            $room = App\Models\Room::latest()->get();
+                        @endphp
+                        <li class="nav-item">
                             <a href="{{ route('froom.all') }}" class="nav-link">
                                 All Rooms
                                 <i class='bx bx-chevron-down'></i>
                             </a>
                             <ul class="dropdown-menu">
                                 @foreach ($room as $item)
-                                <li class="nav-item">
-                                    <a href="room.html" class="nav-link">
-                                        {{ $item['type']['name'] }}
-                                    </a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a href="room.html" class="nav-link">
+                                            {{ $item->room_type }}
+                                        </a>
+                                    </li>
                                 @endforeach
 
                             </ul>
-                        </li> --}}
+                        </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('contact.us') }}" class="nav-link">
                                 Contact
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item-btn">
                             <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>

@@ -42,11 +42,10 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="input2" class="form-label">Type Room </label>
-                                                        <select id="input7" name="room_type[]" class="form-select">
-                                                            <option selected="">Type Room</option>
-                                                            <option value="meetingroom">Meeting Room</option>
-                                                            <option value="room">Room</option>
-                                                            <option value="workspace">Working Space</option>
+                                                        <select id="input7" name="room_type" class="form-select">
+                                                            <option value="{{ $editData->room_type }}"  {{ $editData->room_type == 'meetingroom' ? 'selected' : '' }}>Meeting Room</option>
+                                                            <option value="{{ $editData->room_type }}"  {{ $editData->room_type == 'room' ? 'selected' : '' }}>Room</option>
+                                                            <option value="{{ $editData->room_type }}"  {{ $editData->room_type == 'workspace' ? 'selected' : '' }}>Working Space</option>
                                                         </select>
                                                     </div>
 
@@ -55,15 +54,21 @@
                                                         <input type="text" name="room_capacity" class="form-control"
                                                             id="input2" value="{{ $editData->room_capacity }}">
                                                     </div>
+
                                                     <div class="col-md-12">
                                                         <label for="input7" class="form-label">Location</label>
-                                                        <select id="input7" name="location[]" class="form-select">
-                                                            <option selected="">Choose...</option>
-                                                            <option value="sinaea">Sinaea</option>
-                                                            <option value="capital_mall">Capital Mall</option>
-                                                            <option value="khan_younes">Khan Younes</option>
 
-
+                                                        <select id="input7" name="location" class="form-select">
+                                                            
+                                                            <option value="{{ $editData->location }}"
+                                                                {{ $editData->location == 'sinaea' ? 'selected' : '' }}>
+                                                                sinaea</option>
+                                                            <option value="{{ $editData->location }}"
+                                                                {{ $editData->location == 'capital_mall' ? 'selected' : '' }}>
+                                                                Capital Mall</option>
+                                                            <option value="{{ $editData->location }}"
+                                                                {{ $editData->location == 'khan_younes' ? 'selected' : '' }}>
+                                                                Khan Younes</option>
                                                         </select>
                                                     </div>
 

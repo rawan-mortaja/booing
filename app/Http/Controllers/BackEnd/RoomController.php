@@ -100,10 +100,9 @@ class RoomController extends Controller
         return view('backend.allroom.rooms.edit_rooms', compact('editData', 'basic_facility'));
     }
 
-    public function UpdateRoom(Request $request, $id)
+    public function UpdateRoom(Request $request)
     {
-        $type = $this->getType($request);
-        $location = $this->getLocation($request);
+        $id = $request->id;
 
         if ($request->file('image')) {
             $img = $request->file('image');
@@ -114,12 +113,12 @@ class RoomController extends Controller
             Room::findOrFail($id)
                 ->update([
                     'name' => $request->name,
-                    'room_type' => $type,
+                    'room_type' => $request->room_type,
                     'room_capacity' => $request->room_capacity,
-                    'location'    => $location,
+                    'location'    => $request->location,
                     'short_desc' => $request->short_desc,
                     'image' => $save_url,
-                ]);
+                ])->get();
 
             $notification = array(
                 'message' => 'Room Updated Successfully',
@@ -130,10 +129,10 @@ class RoomController extends Controller
         } else {
             Room::findOrFail($id)
                 ->update([
-                    'name' => $request->name,
-                    'room_type' => $type,
+                    'name' => $request->input('name'),
+                    'room_type' => $request->input('room_type'),
                     'room_capacity' => $request->room_capacity,
-                    'location'    => $location,
+                    'location'    => $request->location,
                     'short_desc' => $request->short_desc,
                 ]);
 
@@ -154,7 +153,6 @@ class RoomController extends Controller
             $img = $room->image;
             unlink($img);
         }
-
 
         Room::findOrFail($id)->delete();
 

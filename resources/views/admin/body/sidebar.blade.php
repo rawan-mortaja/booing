@@ -85,13 +85,13 @@
                 </div>
                 <div class="menu-title">Booking </div>
             </a>
-            {{-- <ul>
+            <ul>
                 <li> <a href="{{ route('booking.list') }}"><i class='bx bx-radio-circle'></i>Booking List </a>
                 </li>
                 <li> <a href="{{ route('add.room.list') }}"><i class='bx bx-radio-circle'></i>Add Booking </a>
                 </li>
 
-            </ul> --}}
+            </ul>
         </li>
         <li>
             <a class="has-arrow" href="javascript:;">

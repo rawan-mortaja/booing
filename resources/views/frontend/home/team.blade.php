@@ -1,6 +1,6 @@
-{{-- @php
+@php
     $team = App\Models\Team::latest()->get();
-@endphp --}}
+@endphp
 
 <div class="team-area-three pt-100 pb-70">
     <div class="container">
@@ -10,7 +10,7 @@
         </div>
         <div class="team-slider-two owl-carousel owl-theme pt-45">
 
-            {{-- @foreach ($team as $item)
+            @foreach ($team as $item)
             <div class="team-item">
                 <a href="team.html">
                     <img src="{{ asset($item->image) }}" alt="Images">
@@ -34,7 +34,7 @@
                     </ul>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
 
         </div>
     </div>
