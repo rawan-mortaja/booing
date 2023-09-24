@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BackEnd\BlogController;
 use App\Http\Controllers\BackEnd\CommentController;
 use App\Http\Controllers\BackEnd\ReportController;
+use App\Http\Controllers\BackEnd\RoleController;
 use App\Http\Controllers\BackEnd\RoomListController;
 use App\Http\Controllers\BackEnd\TestimonialController;
 use App\Http\Controllers\Frontend\FrontendRoomController;
@@ -37,7 +38,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// Admin Group Middleware
 Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -47,32 +47,31 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
-}); // End Admin Group Middleware
+});
 
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
 
-// Admin Group Middleware
 Route::middleware(['auth', 'roles:admin'])->group(function () {
 
-    /// Team All Route
 
     Route::controller(TeamController::class)->group(function () {
 
         Route::get('/all/team', 'AllTeam')
             ->name('all.team')
-            /*->middleware('permission:team.all')*/;
+            ->middleware('permission:team.all');
         Route::get('/add/team', 'AddTeam')
             ->name('add.team')
-            /* ->middleware('permission:team.add')*/;
+            ->middleware('permission:team.add');
         Route::post('/team/store', 'StoreTeam')
             ->name('team.store');
         Route::get('/edit/team/{id}', 'EditTeam')
             ->name('edit.team');
         Route::post('/team/update', 'UpdateTeam')
             ->name('team.update');
-        Route::get('/delete/team/{id}', 'DeleteTeam')->name('delete.team');
+        Route::get('/delete/team/{id}', 'DeleteTeam')
+            ->name('delete.team');
     });
 
     Route::controller(TeamController::class)->group(function () {
@@ -157,7 +156,6 @@ Route::controller(TestimonialController::class)->group(function () {
         ->name('delete.testimonial');
 });
 
-/// Blog Category All Route
 Route::controller(BlogController::class)->group(function () {
 
     Route::get('/blog/category', 'BlogCategory')
@@ -204,65 +202,85 @@ Route::controller(CommentController::class)->group(function () {
 });
 
 
-
 // Route::controller(SettingController::class)->group(function () {
 
 //     Route::get('/site/setting', 'SiteSetting')->name('site.setting');
 //     Route::post('/site/update', 'SiteUpdate')->name('site.update');
 // });
 
-// contact message admin view
 Route::controller(ContentController::class)->group(function () {
 
     Route::get('/contact/message', 'AdminContactMessage')
         ->name('contact.message');
 });
-/// Permission All Route
 Route::controller(RoleController::class)->group(function () {
 
-    Route::get('/all/permission', 'AllPermission')->name('all.permission');
-    Route::get('/add/permission', 'AddPermission')->name('add.permission');
-    Route::post('/store/permission', 'StorePermission')->name('store.permission');
-    Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
-    Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
-    Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
+    Route::get('/all/permission', 'AllPermission')
+        ->name('all.permission');
 
-    Route::get('/import/permission', 'ImportPermission')->name('import.permission');
-    Route::get('/export', 'Export')->name('export');
-    Route::post('/import', 'Import')->name('import');
+    Route::get('/add/permission', 'AddPermission')
+        ->name('add.permission');
+
+    Route::post('/store/permission', 'StorePermission')
+        ->name('store.permission');
+
+    Route::get('/edit/permission/{id}', 'EditPermission')
+        ->name('edit.permission');
+
+    Route::post('/update/permission', 'UpdatePermission')
+        ->name('update.permission');
+
+    Route::get('/delete/permission/{id}', 'DeletePermission')
+        ->name('delete.permission');
 });
 
 
-/// Role All Route
 Route::controller(RoleController::class)->group(function () {
 
-    Route::get('/all/roles', 'AllRoles')->name('all.roles');
-    Route::get('/add/roles', 'AddRoles')->name('add.roles');
-    Route::post('/store/roles', 'StoreRoles')->name('store.roles');
-    Route::get('/edit/roles/{id}', 'EditRoles')->name('edit.roles');
-    Route::post('/update/roles', 'UpdateRoles')->name('update.roles');
-    Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
+    Route::get('/all/roles', 'AllRoles')
+        ->name('all.roles');
+    Route::get('/add/roles', 'AddRoles')
+        ->name('add.roles');
+    Route::post('/store/roles', 'StoreRoles')
+        ->name('store.roles');
+    Route::get('/edit/roles/{id}', 'EditRoles')
+        ->name('edit.roles');
+    Route::post('/update/roles', 'UpdateRoles')
+        ->name('update.roles');
+    Route::get('/delete/roles/{id}', 'DeleteRoles')
+        ->name('delete.roles');
 
 
-    Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
-    Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store');
-    Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission');
+    Route::get('/add/roles/permission', 'AddRolesPermission')
+        ->name('add.roles.permission');
+    Route::post('/role/permission/store', 'RolePermissionStore')
+        ->name('role.permission.store');
+    Route::get('/all/roles/permission', 'AllRolesPermission')
+        ->name('all.roles.permission');
 
-    Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles');
-    Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update');
-    Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles');
+    Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')
+        ->name('admin.edit.roles');
+    Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')
+        ->name('admin.roles.update');
+    Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')
+        ->name('admin.delete.roles');
 });
 
 
-/// Admin User All Route
 Route::controller(AdminController::class)->group(function () {
 
-    Route::get('/all/admin', 'AllAdmin')->name('all.admin');
-    Route::get('/add/admin', 'AddAdmin')->name('add.admin');
-    Route::post('/store/admin', 'StoreAdmin')->name('store.admin');
-    Route::get('/edit/admin/{id}', 'EditAdmin')->name('edit.admin');
-    Route::post('/update/admin/{id}', 'UpdateAdmin')->name('update.admin');
-    Route::get('/delete/admin/{id}', 'DeleteAdmin')->name('delete.admin');
+    Route::get('/all/admin', 'AllAdmin')
+        ->name('all.admin');
+    Route::get('/add/admin', 'AddAdmin')
+        ->name('add.admin');
+    Route::post('/store/admin', 'StoreAdmin')
+        ->name('store.admin');
+    Route::get('/edit/admin/{id}', 'EditAdmin')
+        ->name('edit.admin');
+    Route::post('/update/admin/{id}', 'UpdateAdmin')
+        ->name('update.admin');
+    Route::get('/delete/admin/{id}', 'DeleteAdmin')
+        ->name('delete.admin');
 });
 
 Route::controller(FrontendRoomController::class)->group(function () {
@@ -319,7 +337,6 @@ Route::controller(CommentController::class)->group(function () {
 });
 
 
-/// Frontend Gallery All Route
 Route::controller(ContentController::class)->group(function () {
 
     // Contact All Route
@@ -328,7 +345,6 @@ Route::controller(ContentController::class)->group(function () {
     Route::post('/store/contact', 'StoreContactUs')->name('store.contact');
 });
 
-/// Notification All Route
 Route::controller(BookingController::class)->group(function () {
 
     Route::post('/mark-notification-as-read/{notification}', 'MarkAsRead');

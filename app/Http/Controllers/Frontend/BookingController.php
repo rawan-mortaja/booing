@@ -8,12 +8,15 @@ use App\Models\Booking;
 use App\Models\Room;
 use App\Models\RoomBookedDate;
 use App\Models\RoomList;
+use App\Models\User;
+use App\Notifications\BookingComplete;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Nette\Utils\Random;
 
 class BookingController extends Controller
@@ -26,6 +29,7 @@ class BookingController extends Controller
 
     public function BookingStore(Request $request)
     {
+        $user = User::where('role', 'admin')->get();
 
         Booking::create([
             'rooms_id' => $request->input('room_id'),
@@ -40,10 +44,22 @@ class BookingController extends Controller
             'message' => 'Booking Created Successfully',
             'alert-type' => 'success'
         );
+        Notification::send($user, new BookingComplete($request->name));
 
         return redirect()->route('user.booking')->with($notification);
     }
 
+    public function MarkAsRead(Request $request, $notificationId)
+    {
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id', $notificationId)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+        }
+
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
+    } 
 
     public function BookingList()
     {

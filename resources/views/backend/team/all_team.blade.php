@@ -44,15 +44,15 @@
                                     <td>{{ $item->postion }}</td>
                                     <td>{{ $item->facebook }}</td>
                                     <td>
-                                        {{-- @if (Auth::user()->can('team.edit')) --}}
+                                        @if (Auth::user()->can('team.edit'))
                                         <a href="{{ route('edit.team', $item->id) }}"
                                             class="btn btn-warning px-3 radius-30"> Edit</a>
-                                        {{-- @endif --}}
+                                        @endif
 
-                                        {{-- @if (Auth::user()->can('team.delete')) --}}
+                                        @if (Auth::user()->can('team.delete'))
                                         <a href="{{ route('delete.team', $item->id) }}"
                                             class="btn btn-danger px-3 radius-30" id="delete"> Delete</a>
-                                        {{-- @endif --}}
+                                        @endif
 
                                     </td>
                                 </tr>
