@@ -13,12 +13,12 @@
                     </ol>
                 </nav>
             </div>
-            <div class="ms-auto">
+            {{-- <div class="ms-auto">
                 <div class="btn-group">
                     <a href="{{ route('add.room.list') }}" class="btn btn-primary px-5">Add Booking </a>
 
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!--end breadcrumb-->
         <hr />
@@ -33,10 +33,10 @@
                                 <th>Booking Date</th>
                                 <th>User</th>
                                 <th>Room</th>
-                                <th>Check IN/Out</th>
+                                <th>Time IN/Out</th>
                                 <th>Guest</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -44,24 +44,24 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td> <a href="{{ route('edit_booking', $item->id) }}"> {{ $item->code }} </a></td>
-                                    <td> {{ $item->created_at->format('d/m/Y') }} </td>
+                                    <td> {{ $item->check_in }} </td>
                                     <td> {{ $item->user->name }} </td>
                                     <td> {{ $item->rooms->room_type }} </td>
-                                    <td> <span class="badge bg-primary">{{ $item->check_in }}</span> / <span
-                                            class="badge bg-warning text-dark">{{ $item->check_out }}</span> </td>
+                                    <td> <span class="badge bg-primary">{{ $item->checkin_time }}</span> / <span
+                                            class="badge bg-warning text-dark">{{ $item->checkout_time }}</span> </td>
                                     <td> {{ $item->person }} </td>
                                     <td>
                                         @if ($item->status == '1')
-                                            <span class="text-success">Active</span>
+                                            <span class="text-success">Accept</span>
                                         @else
-                                            <span class="text-danger">Pending</span>
+                                            <span class="text-danger">Deny</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('booking.delete', $item->id) }}"
                                             class="btn btn-danger px-3 radius-30" id="delete">Delete</a>
 
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
 

@@ -108,8 +108,8 @@
                                     <tr>
                                         <td>{{ $editData->rooms->room_type }}</td>
                                         <td>
-                                            <span class="badge bg-primary">{{ $editData->check_in }}</span> /
-                                            <span class="badge bg-warning text-dark">{{ $editData->check_out }}</span>
+                                            <span class="badge bg-primary">{{ $editData->checkin_time }}</span> /
+                                            <span class="badge bg-warning text-dark">{{ $editData->checkout_time }}</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -140,9 +140,9 @@
                                     <label for="">Booking Status</label>
                                     <select name="status" id="input7" class="form-select">
                                         <option selected="">Select Status..</option>
-                                        <option value="0" {{ $editData->status == 0 ? 'selected' : '' }}> Pending
+                                        <option value="1" {{ $editData->status == 1 ? 'selected' : '' }}> Accept
                                         </option>
-                                        <option value="1" {{ $editData->status == 1 ? 'selected' : '' }}>Complete
+                                        <option value="0" {{ $editData->status == 0 ? 'selected' : '' }}>Deny
                                         </option>
                                     </select>
                                 </div>
@@ -165,6 +165,38 @@
 
             <div class="col-12 col-lg-4">
                 <div class="card radius-10 w-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h6 class="mb-0">User Infromation </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li
+                                class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
+                                Name <span class="badge bg-success rounded-pill">{{ $editData->user->name }}</span>
+                            </li>
+                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                                Email <span class="badge bg-danger rounded-pill">{{ $editData->user->email }} </span>
+                            </li>
+                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                                Phone <span class="badge bg-primary rounded-pill">{{ $editData->user->phone }}</span>
+                            </li>
+                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                                Country <span
+                                    class="badge bg-warning text-dark rounded-pill">{{ $editData->user->address }}</span>
+                            </li>
+
+                            <li
+                                class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
+                                State <span class="badge bg-success rounded-pill">{{ $editData->user->status }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+             {{--    <div class="card radius-10 w-100">
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <div>
@@ -201,41 +233,10 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="card radius-10 w-100">
-                    <div class="card-header">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h6 class="mb-0">User Infromation </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li
-                                class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
-                                Name <span class="badge bg-success rounded-pill">{{ $editData->user->name }}</span>
-                            </li>
-                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-                                Email <span class="badge bg-danger rounded-pill">{{ $editData->user->email }} </span>
-                            </li>
-                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-                                Phone <span class="badge bg-primary rounded-pill">{{ $editData->user->phone }}</span>
-                            </li>
-                            <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
-                                Country <span
-                                    class="badge bg-warning text-dark rounded-pill">{{ $editData->user->address }}</span>
-                            </li>
+                </div>--}}
 
-                            <li
-                                class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
-                                State <span class="badge bg-success rounded-pill">{{ $editData->user->status }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 {{-- // end card radius-10 w-100 --}}
-            </div>
+         {{--    </div> --}}
         </div><!--end row-->
 
     </div>

@@ -1,6 +1,6 @@
 {{-- @php
     {{-- $setting = App\Models\SiteSetting::find(1); --}}
-@endphp --}}
+{{-- @endphp --}}
 
 
 <div class="navbar-area">
@@ -71,12 +71,12 @@
                         </li>
 
                         <li class="nav-item-btn">
-                            <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
+                            <a href="{{ route('froom.all') }}" class="default-btn btn-bg-one border-radius-5">Book Now</a>
                         </li>
                     </ul>
 
                     <div class="nav-btn">
-                        <a href="#" class="default-btn btn-bg-one border-radius-5">Book Now</a>
+                        <a href="{{ route('froom.all') }}" class="default-btn btn-bg-one border-radius-5">Book Now</a>
                     </div>
                 </div>
             </nav>

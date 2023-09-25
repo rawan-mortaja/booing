@@ -10,6 +10,7 @@ use App\Models\RoomBookedDate;
 use App\Models\RoomList;
 use App\Models\User;
 use App\Notifications\BookingComplete;
+use App\Rules\BookingHoursAvailabilityRule;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,13 +31,23 @@ class BookingController extends Controller
     public function BookingStore(Request $request)
     {
         $user = User::where('role', 'admin')->get();
+        $request->validate([
+            'check_in' => 'required|date',
+            'checkin_time' => 'required',
+            'checkout_time' => 'required',
+            'person' => 'required',
+            'rooms_id' => [
 
+                new BookingHoursAvailabilityRule($request->check_in, $request->checkin_time, $request->checkout_time),
+            ],
+        ]);
         Booking::create([
-            'rooms_id' => $request->input('room_id'),
+            'rooms_id' => $request->input('rooms_id'),
             'user_id' => Auth::id(),
             'code' => str::random(6),
             'check_in' => $request->input('check_in'),
-            'check_out' => $request->input('check_out'),
+            'checkout_time' => date('H:i:s', strtotime($request->checkout_time)),
+            'checkin_time' => date('H:i:s', strtotime($request->checkin_time)),
             'person' => $request->input('person'),
         ]);
 
@@ -59,7 +70,7 @@ class BookingController extends Controller
         }
 
         return response()->json(['count' => $user->unreadNotifications()->count()]);
-    } 
+    }
 
     public function BookingList()
     {
@@ -109,7 +120,8 @@ class BookingController extends Controller
 
         $data->update([
             'check_in' => date('Y-m-d', strtotime($request->check_in)),
-            'check_out' =>  date('Y-m-d', strtotime($request->check_out)),
+            'checkout_time' =>  ($request->checkout_time),
+            'checkin_time' =>  ($request->checkin_time),
             'person' => $request->person,
         ]);
 

@@ -1,4 +1,4 @@
-{{--
+    {{--
 @php
     $setting = App\Models\SiteSetting::find(1);
 @endphp --}}

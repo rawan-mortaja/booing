@@ -42,7 +42,7 @@
                                             <li><i class='bx bx-user'></i> {{ $item->room_capacity }} Person</li>
                                         </ul>
 
-                                        <a href="room-details.html" class="book-more-btn">
+                                        <a href="{{ route('room.details',$item->id) }}" class="book-more-btn">
                                             Book Now</a>
                                     </div>
                                 </div>

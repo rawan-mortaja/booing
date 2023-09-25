@@ -7,7 +7,7 @@
     <div class="container">
         <div class="section-title text-center">
             <span class="sp-color">BLOGS</span>
-            <h2>Our Latest Blogs to the Intranational Journal at a Glance</h2>
+            <h2>Our Latest Blogs </h2>
         </div>
         <div class="row pt-45">
 

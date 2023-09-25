@@ -17,50 +17,48 @@
         <div class="container">
             <div class="banner-form">
                 <form method="get" action="{{ route('booking.search') }}">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3 col-md-3">
-                            <div class="form-group">
-                                <label>CHECK IN TIME</label>
-                                <div class="input-group">
-                                    <input autocomplete="off" type="text" required name="check_in"
-                                        class="form-control dt_picker" placeholder="yyy-mm-dd">
-                                    <span class="input-group-addon"></span>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <div class="input-group">
+                                        <input autocomplete="off" type="text" required name="check_in" class="form-control dt_picker" placeholder="yyyy-mm-dd">
+                                        <span class="input-group-addon"></span>
+                                    </div>
                                 </div>
-                                <i class='bx bxs-chevron-down'></i>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3 col-md-3">
-                            <div class="form-group">
-                                <label>CHECK OUT TIME</label>
-                                <div class="input-group">
-                                    <input autocomplete="off" type="text" required name="check_out"
-                                        class="form-control dt_picker" placeholder="yyy-mm-dd">
-                                    <span class="input-group-addon"></span>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Check-in Time</label>
+                                    <div class="input-group">
+                                        <input autocomplete="off" type="text" required name="checkin_time" class="form-control" placeholder="hh:mm AM/PM">
+                                        <span class="input-group-addon"></span>
+                                    </div>
                                 </div>
-                                <i class='bx bxs-chevron-down'></i>
                             </div>
-                        </div>
 
-                        <div class="col-lg-2 col-md-2">
-                            <div class="form-group">
-                                <label>GUESTS</label>
-                                <input  type="text" placeholder="person" name="person"
-                                        class="form-control" >
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Check-out Time</label>
+                                    <div class="input-group">
+                                        <input autocomplete="off" type="text" required name="checkout_time" class="form-control" placeholder="hh:mm AM/PM">
+                                        <span class="input-group-addon"></span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-4 col-md-4">
-                            <button type="submit" class="default-btn btn-bg-one border-radius-5">
-                                Check Availability
-                            </button>
+                            <div class="col-sm-1">
+                                <button type="submit" class="btn btn-bg-one border-radius-5 text-white">
+                                    Check Availability
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
-
-
-
             </div>
+
         </div>
     </div>
     <!-- Banner Form Area End -->

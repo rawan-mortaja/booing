@@ -23,7 +23,9 @@ return new class extends Migration
                 ->nullOnDelete();
             $table->string('check_in')
                 ->nullable();
-            $table->string('check_out')
+            $table->string('checkout_time')
+                ->nullable();
+            $table->string('checkin_time')
                 ->nullable();
             $table->string('person')
                 ->nullable();

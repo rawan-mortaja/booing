@@ -1,3 +1,14 @@
+@php
+    $bookings = App\Models\Booking::latest()->get();
+    $pending = App\Models\Booking::where('status', '0')->get();
+    $complete = App\Models\Booking::where('status', '1')->get();
+
+    $allData = App\Models\Booking::orderBy('id', 'desc')
+        ->limit(10)
+        ->get();
+
+@endphp
+
 @extends('frontend.main_master')
 @section('main')
     <!-- Inner Banner -->
@@ -28,7 +39,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="service-article">
-                       <div class="service-article-title">
+                        <div class="service-article-title">
                             <h2>User Dashboard </h2>
                         </div>
                         <div class="service-article-content">
@@ -38,17 +49,21 @@
                                     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                                         <div class="card-header">Total Booking</div>
                                         <div class="card-body">
-                                            <h1 class="card-title" style="font-size: 45px;">3 Total</h1>
+                                            <h1 class="card-title" style="font-size: 45px;">{{ count($bookings) }} Total</h1>
 
                                         </div>
                                     </div>
                                 </div>
-
+                                {{-- @if ($allData->status == 1)
+                                    <span class="badge bg-success">Complete</span>
+                                @else
+                                    <span class="badge bg-info text-dark">Pending</span>
+                                @endif --}}
                                 <div class="col-md-4">
                                     <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
                                         <div class="card-header">Pending Booking </div>
                                         <div class="card-body">
-                                            <h1 class="card-title" style="font-size: 45px;">3 Pending</h1>
+                                            <h1 class="card-title" style="font-size: 45px;">{{ count($pending) }} Pending</h1>
 
                                         </div>
                                     </div>
@@ -59,7 +74,8 @@
                                     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                                         <div class="card-header">Complete Booking</div>
                                         <div class="card-body">
-                                            <h1 class="card-title" style="font-size: 45px;">3 Complete</h1>
+                                                <h1 class="card-title" style="font-size: 45px;">{{ count($complete) }}
+                                                    Complete</h1>
 
                                         </div>
                                     </div>

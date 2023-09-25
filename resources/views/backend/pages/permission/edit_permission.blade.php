@@ -59,9 +59,9 @@
                                             <option value="RoomList"
                                                 {{ $permission->group_name == 'RoomList' ? 'selected' : '' }}>RoomList
                                             </option>
-                                         
-                                            <option value="Tesimonial"
-                                                {{ $permission->group_name == 'Tesimonial' ? 'selected' : '' }}>Tesimonial
+
+                                            <option value="Review"
+                                                {{ $permission->group_name == 'Review' ? 'selected' : '' }}>Review
                                             </option>
                                             <option value="Blog"
                                                 {{ $permission->group_name == 'Blog' ? 'selected' : '' }}>Blog</option>
@@ -74,6 +74,12 @@
                                             <option value="Role and Permission"
                                                 {{ $permission->group_name == 'Role and Permission' ? 'selected' : '' }}>
                                                 Role and Permission </option>
+                                            <option value="List booking"
+                                                {{ $permission->group_name == 'List booking' ? 'selected' : '' }}>
+                                                List booking </option>
+                                                <option value="Edit booking"
+                                                {{ $permission->group_name == 'Edit booking' ? 'selected' : '' }}>
+                                                Edit booking </option>
                                         </select>
 
                                     </div>

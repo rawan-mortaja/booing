@@ -67,9 +67,9 @@
                                                                 </td>
                                                                 <td>
                                                                     @if ($item->status == 1)
-                                                                        <span class="badge bg-success">Complete</span>
+                                                                        <span class="badge bg-success">Accept</span>
                                                                     @else
-                                                                        <span class="badge bg-info text-dark">Pending</span>
+                                                                        <span class="badge bg-info text-dark">Deny</span>
                                                                     @endif
 
                                                                 </td>

@@ -1,5 +1,15 @@
 @extends('frontend.main_master')
 @section('main')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     <!-- Inner Banner -->
     <div class="inner-banner inner-bg10">
         <div class="container">
@@ -90,11 +100,11 @@
                                 id="bk_form">
                                 @csrf
 
-                                <input type="hidden" name="room_id" value="{{ $roomdetails->id }}">
+                                <input type="hidden" name="rooms_id" value="{{ $roomdetails->id }}">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label>Check in</label>
+                                            <label>Date</label>
                                             <div class="input-group">
                                                 <input id="datetimepicker" type="text" class="form-control"
                                                     placeholder="09/29/2023" name="check_in"
@@ -104,16 +114,25 @@
                                             <i class='bx bxs-calendar'></i>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Check Out</label>
+                                            <label>Check-in Time</label>
                                             <div class="input-group">
-                                                <input id="datetimepicker-check" type="text"  name="check_out" class="form-control"
-                                                    placeholder="09/29/2023">
+                                                <input id="timepicker-checkin" type="text" class="form-control" placeholder="12:00 PM" name="checkin_time">
                                                 <span class="input-group-addon"></span>
                                             </div>
-                                            <i class='bx bxs-calendar'></i>
+                                            <i class='bx bxs-clock'></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Check-out Time</label>
+                                            <div class="input-group">
+                                                <input id="timepicker-checkout" type="text" class="form-control" placeholder="03:00 PM" name="checkout_time">
+                                                <span class="input-group-addon"></span>
+                                            </div>
+                                            <i class='bx bxs-clock'></i>
                                         </div>
                                     </div>
 

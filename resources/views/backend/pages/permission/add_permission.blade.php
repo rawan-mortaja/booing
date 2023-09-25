@@ -45,11 +45,14 @@
                                             <option value="Manage Room">Manage Room</option>
                                             <option value="Booking">Booking</option>
                                             <option value="RoomList">RoomList</option>
-                                            <option value="Tesimonial">Tesimonial</option>
+                                            <option value="Tesimonial">Reviews</option>
                                             <option value="Blog">Blog</option>
                                             <option value="Manage Comment">Manage Comment</option>
                                             <option value="Contact Message ">Contact Message </option>
-                                            <option value="Role and Permission">Role and Permission </option>
+                                            <option value="Role and Permission">Role and Permission </option>                                            <option value="Role and Permission">Role and Permission </option>
+                                            <option value="Role and Permission">List booking </option>
+                                            <option value="Role and Permission">Edit booking </option>
+
                                         </select>
 
                                     </div>
