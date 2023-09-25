@@ -114,22 +114,24 @@
                             <li>
                                 <i class='bx bx-home-alt'></i>
                                 <div class="content">
-                                    <span>123 Virgil A Stanton, Virginia, USA</span>
-                                    <span>163 Virgil A Stanton, Virginia, USA</span>
+                                    <span>Gaza , Palestine</span>
+                                    {{-- <span>163 Virgil A Stanton, Virginia, USA</span> --}}
                                 </div>
                             </li>
+                            <br>
                             <li>
                                 <i class='bx bx-phone-call'></i>
                                 <div class="content">
-                                    <span><a href="tel:+1(123)4567890">+1 (123) 456 7890</a></span>
-                                    <span><a href="tel:+1(123)4567896">+1 (123) 456 7896</a></span>
+                                    <span><a href="tel:+1(123)4567890">+970 (59) 574 256</a></span>
+                                    {{-- <span><a href="tel:+1(123)4567896">+1 (123) 456 7896</a></span> --}}
                                 </div>
                             </li>
+                            <br>    
                             <li>
                                 <i class='bx bx-envelope'></i>
                                 <div class="content">
-                                    <span><a href="info@atoli.com">info@atoli.com</a></span>
-                                    <span><a href="hello@atoli.com">hello@atoli.com</a></span>
+                                    <span><a href="gaza_sky_geeks@gsg.com">gaza_sky_geeks@gsg.com</a></span>
+                                    {{-- <span><a href="hello@atoli.com">hello@atoli.com</a></span> --}}
                                 </div>
                             </li>
                         </ul>

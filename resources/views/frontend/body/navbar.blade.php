@@ -32,11 +32,11 @@
                             </a>
 
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="about.html" class="nav-link">
                                 About
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="{{ route('blog.list') }}" class="nav-link">
@@ -50,9 +50,9 @@
                         <li class="nav-item">
                             <a href="{{ route('froom.all') }}" class="nav-link">
                                 All Rooms
-                                <i class='bx bx-chevron-down'></i>
+                                {{-- <i class='bx bx-chevron-down'></i> --}}
                             </a>
-                            <ul class="dropdown-menu">
+                            {{-- <ul class="dropdown-menu">
                                 @foreach ($room as $item)
                                     <li class="nav-item">
                                         <a href="room.html" class="nav-link">
@@ -61,7 +61,7 @@
                                     </li>
                                 @endforeach
 
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <li class="nav-item">
